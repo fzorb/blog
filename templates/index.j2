@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>fzorb</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/turretcss/dist/turretcss.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body id="applet" class="background-{{ session['theme'] }}">
+    <div class="padding-s background-{{ session['theme'] }}-400 color-{{ session['txtcl'] }}">
+      <div class="container">
+        <span><h4><strong>FzOrb's website</strong> <a href="/int/theme"class="button button-{{ session['theme'] }}"><span id="thm">
+        {% if session['theme'] == "light" %}<i class="fa-solid fa-moon">{% else %}<i class="fa-solid fa-sun">{% endif %}</i>
+        </span></a></h4></span>
+      </div>
+    </div>
+    <div class="container padding-s centered color-{{ session['txtcl'] }}">
+      <div class="padding-xl">
+        <h2>Hello world!</h2>
+        <p>Welcome to my little place here on the interwebs.</p>
+      </div>
+    </div>
+    <div class="container padding-xl">
+    {% for post in posts %}
+      <div class="padding-top-m"></div>
+      <div class="padding-m flex flex-column justify-content-space-between border-radius background-{{ session['theme'] }}-400 color-{{ session['txtcl'] }} ">
+        <h5><a href="/post/{{ post|replace(".md", "") }}">{{ post|replace("+", " ")|replace(".md", "") }}</a></h5>
+        {% set crt = crt + 1 %}
+      </div>
+    {% endfor %}
+    </div>
+  </body>
+</html>
