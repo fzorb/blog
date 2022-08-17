@@ -11,7 +11,3 @@ pip install flask gunicorn flask-markdown
 #run the repo
 sh restart.sh
 ```
-  
-  
-## place your files in /static/
-## do not place a directory inside a directory
